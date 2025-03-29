@@ -1,0 +1,28 @@
+Atividades: 
+
+1) Extrator de caracteres de um arquivo - Desenvolva um programa que leia um arquivo de texto e o decomponha na sequência de caracteres ASCII individuais nele contidos.
+
+2) Inclusão de filtro para eliminar caracteres não desejados - Acrescente ao programa construído uma seção que receba como entrada uma lista de caracteres indesejados e, com eles, inclua no programa um filtro que remova da sequência originalmente encontrada de caracteres ASCII todas as ocorrências dos caracteres que constam dessa lista. Em particular, use esse programa para fazer a eliminação de brancos, espaçadores, tabulações, marcas de final de linha, final de arquivo, formatação, etc.
+
+3 - Listagem numerada - Seu programa deve ler o arquivo texto e criar a partir dele uma listagem do texto acrescido do número sequencial de suas linhas;
+
+4 - Enriqueça o programa anterior fazendo-o extrair, para cada linha processada, o conjunto de palavras encontrado e tabelando essas palavras com a inormação da linha em que ocorreram. Ao final, ordene alfabeticamente e imprima a tabela de referências cruzadas assim constituída, indicando para cada palavra o conjunto de linhas em que ela ocorreu no texto processado.
+5 - Conversão Numérica - Desenvolva no programa uma conversão numérica de entrada e saída de dados que efetuem a leitura de dados escritos em diversas bases numéricas e armazenem na memória os valores convertidos, denotados em uma notação padrão (decimal). Faça o mesmo para a saída de dados, escolhendo a base e o formato de saída (númerop de dígitos a imprimir, posição do sinal, etc.)
+
+6 - Desenvolva um programa que monte uma tabela de símbolos, em que cada símbolo possa se apresentar com um comprimento arbitrário. Construa procedimentos para ordená-los alfabeticamente, para pesquisar um símbolo específico na tabela, para incluir um elemento adicional, associar atributos a um determinado símbolo, etc.
+
+7 - Desenvolva um procedimento para pesquisa em tabelas de conteúdo fixo, como as de palavras reservadas e similares.
+
+
+
+EXPRESSÔES REGULARES:
+
+Com base nas regras definidas pela atividade do Material Aula 02, crie um programa que seja capaz de validar as Expressões Regulares especificadas:
+ Binários pares
+ Palavras (binárias) com 00 no final
+ Strings entre aspas
+ telefones em SC
+ placas de veículos no Brasil
+ email .br ou .com.br
+ comentários de linha //
+ comentários de múltiplas linhas /* ... */
