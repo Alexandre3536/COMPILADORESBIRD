@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="pt_BR">
+
+<head>
+  <meta charset="utf8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>BIRL - O Craque Neto e sua Linguagem Recursiva!</title>
+
+  <meta prefix="og: http://ogp.me/ns#" property='og:title' content="BIRL - O Craque Neto e sua Linguagem Recursiva!" />
+  <meta prefix="og: http://ogp.me/ns#" property='og:type' content='website' />
+
+  <meta prefix="og: http://ogp.me/ns#" property='og:description'
+        content='Vem cumpade! Sai de casa codei pra caralho! BIRL!' />
+
+  <meta prefix="og: http://ogp.me/ns#" property='og:site_name' content='BIRL' />
+
+  <meta property="og:url"           content="https://birl-language.github.io" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="BIRL - O Craque Neto e sua Linguagem Recursiva!" />
+  <meta property="og:description"   content="Vem cumpade! Sai de casa codei pra caralho! BIRL!" />
+  <meta property="og:image"         content="https://birl-language.github.io/images/birl2.png" />
+
+  <meta property="fb:admins" content="100002158398392"/>
+  <meta property="fb:admins" content="100002144931535"/>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/owl.carousel.css" rel="stylesheet">
+  <link href="css/owl.transitions.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <link href="css/pictonic.css" rel="stylesheet">
+  <link href="css/newicons.css" rel="stylesheet">
+  <link href="css/flex-calendar.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+
+<body id="home" class="homepage" ng-app="birlWeb">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6&appId=362013387327951";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  <section id="upcoming" ng-controller="birlCtrl">
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 center-wrap">
+            <div class="center-inner">
+              <img src="images/craque neto.jfif" class="center-img">
+            </div>
+          </div>
+        </div>
+      <div class="section-header">
+        <h2 class="section-title text-center">Aqui é Curintia!</h2>
+        <p class="text-center birl-text">
+          O BIRL (<span class="red">B</span>ambam's "<span class="red">I</span>t's show time" <span class="red">R</span>ecursive <span class="red">L</span>anguage) é a linguagem de programação mais **craque** já inventada! <br><span class="highlight">Ela é para quem realmente entende de bola e não é **bola minguada**. É uma linguagem simples, mas com o poder de fazer qualquer **gol de placa**.</span><br>Programando em BIRL, é **gol de placa** o ano todo!
+        </p>
+      </div>
+
+      <div class="row console">
+        <div class="col-xs-12 col-sm-6 nopadding">
+          <div class="editor" ui-ace="{useWrapMode : true,showGutter: true,theme:'monokai',mode: 'birl'}" ng-model="code">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 nopadding">
+          <div class="title title-right">
+            Entrada
+          </div>
+          <div class="entrance">
+            <textarea ng-model="stdin" placeholder="..."></textarea>
+          </div>
+          <div class="title">
+            <button class="btn btn-danger btn-large" ng-click="sendBirl()" ng-disabled="disabled">{{btText}}</button>
+          </div>
+          <div class="title">
+            Saída
+          </div>
+          <div class="exit" ng-class="{'error' : temErro}">
+            {{stdout}}
+          </div>
+          <div class="title bottom">
+            <a class="btn btn-danger btn-large" ng-href="{{ fileUrl }}" download="codigo.birl"><span class="fa fa-cloud-download"></span> Tirar da Jaula</a>
+          </div>
+      </div>
+      <div class="fb-like" data-href="https://birl-language.github.io" data-width="800" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+  </section>  <section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">Aqui é Curintia!</h2>
+            <p class="text-center wow fadeInDown">
+            </p>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Início do Código</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">Que fase!</span>
+                          <br>
+                          <span class="comment">//código aqui</span>
+                          <br>
+                          <span class="red">Dá licença!</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Tipos de Dados</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">QUE FASE</span> FR = 'a'; <i>(char)</i><br>
+                          <span class="red">BOLA MINGUADA</span> M1 = 13; <i>(short)</i><br>
+                          <span class="red">CRAQUE</span> M2 = 37; <i>(int)</i><br>
+                          <span class="red">GÊNIO</span> M3 = 666; <i>(long)</i><br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Mais Tipos de Dados</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">PÉ DE RATO</span> T = 0.13; <i>(float)</i><br>
+                          <span class="red">ARTILHEIRO</span> TD = 0.37; <i>(double)</i><br>
+                          <span class="red">JOGA MUITO</span> BF = 200; <i>(unsigned)</i><br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Exibir na Tela</h3>
+                  <div class="code">
+                      <p>
+                          <br>
+                          <span class="red">TÁ DE SACANAGEM!</span> ("Alô, Fiel")<span class="red">;</span>
+                          <br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Receber da Tela</h3>
+                  <div class="code">
+                      <p>
+                          CRAQUE X;<br>
+                          <span class="red">VAI CORINTHIANS!</span> ("%d", &X)<span class="red">;</span>
+                          <br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Se</h3>
+                  <div class="code">
+                      <p>
+                          <br>
+                          <span class="red">MEU DEUS DO CÉU!</span> (3 > 2)<br>
+                          <span class="comment">//código a ser executado</span><br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Se/Senão</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">MEU DEUS DO CÉU!</span> (X > 2)<br>
+                          <span class="comment">//caso verdadeiro</span><br>
+                          <span class="red">JÁ FALEI!</span><br>
+                          <span class="comment">//caso falso</span><br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Senão Se</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">MEU DEUS DO CÉU!</span> (X > 2)<br>
+                          <span class="comment">//X > 2</span><br>
+                          <span class="red">VAI SE FUDER!</span> (X < 2)<br>
+                          <span class="comment">//X < 2</span><br>
+                          <span class="red">JÁ FALEI!</span><br>
+                          <span class="comment">//X = 2</span><br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Enquanto</h3>
+                  <div class="code">
+                      <p>
+                          <br>
+                          CRAQUE X = 5;<br>
+                          <span class="red">ENTENDEU OU QUER QUE DESENHE?</span> (X > 2)<br>
+                          <span class="comment">//rodar código</span><br>
+                          <span class="comment"></span>X--;<br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Para</h3>
+                  <div class="code">
+                      <p>
+                          <br>
+                          <br>
+                          CRAQUE M;<br>
+                          <span class="red">OLHA AÍ, FDP!</span> (M = 0; M < 5; M++)<br>
+                          <span class="comment"></span><span class="red">TÁ DE SACANAGEM!</span> ("%d", M);<br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Interromper/Continuar</h3>
+                  <div class="code">
+                      <p>
+                          CRAQUE M;<br>
+                          <span class="red">É GOOOOOL DO CORINTHIANS!</span> (M = 0; M < 5; M++)<br>
+                          <span class="comment">//continue</span><br>
+                          <span class="comment"></span><span class="red">OLHA O GOL!</span><br>
+                          <span class="comment">//break</span><br>
+                          <span class="comment"></span><span class="red">VAI TOMAR NO C*!</span><br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+           <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Declarar Função</h3>
+                  <div class="code">
+                      <p>
+                          <span class="red">É UM ABSURDO!</span> (CRAQUE NOMEFUNC(CRAQUE A, CRAQUE B))<br>
+                          <span class="comment">//código da função</span><br>
+                          <span class="comment"></span><span class="red">DEIXA COMIGO!</span> 1<span class="red">;</span><br>
+                          <span class="red">DA LICENÇA!</span>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 tutorial-out">
+              <div class="tutorial-box">
+                  <h3>Chamar Função</h3>
+                  <div class="code">
+                      <p>
+                          CRAQUE A = 5; <br>
+                          CRAQUE B = 8; <br>
+                          CRAQUE C = <span class="red">PURA EMOÇÃO!</span> SOMAR(A, B);<br>
+                          <br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="section-header bottom-header">
+        <h2 class="section-title text-center wow fadeInDown"></h2>
+        <p class="text-center wow fadeInDown">
+          É isso aí, galera do BIRL! Estamos finalizando o tutorial, acho que deu para vocês pegarem hoje bastante informação.
+        </p>
+        <p class="text-center wow fadeInDown red">
+          Quer colaborar com o BIRL? Aumentar a linguagem? Vem cumpade! Acesse o repositório mais **craque** do GitHub: <a href="https://github.com/BIRL-Language/">BIRL</a>
+        </p>
+      </div>
+  </section>
+
+  <section id="operation">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Exemplo **Artilheiro**</h2>
+        <p class="text-center wow fadeInDown">
+          Sai de casa codei pra caralho! Veja como programar em BIRL é **craque** com esse somador:
+        </p>
+      </div>
+      <div class="row example">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6 code code-right">
+           <span class="red">É UM ABSURDO!</span> (CRAQUE SOMAR(CRAQUE A, CRAQUE B))<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="teal">DEIXA COMIGO!</span> A + B;<br>
+           <span class="red">DA LICENÇA!</span><br><br>
+
+           <span class="red">VAI CORINTHIANS!</span><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CRAQUE A, B, RES;<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">TÁ DE SACANAGEM!</span> ("Entra com A e B aí, cumpade!!\n");<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">VAI CORINTHIANS!</span> ("%d %d", &A, &B);<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RES = <span class="red">PURA EMOÇÃO!</span> SOMAR(A, B);<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">TÁ DE SACANAGEM!</span> ("Oh o resultado aí, po: %d\n", RES);<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="teal">MEU DEUS DO CÉU!</span> (RES == 37)<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">TÁ DE SACANAGEM!</span> ("É 37 anos, caralho!\n");<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="teal">JÁ FALEI!</span><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">TÁ DE SACANAGEM!</span> ("Manda a bola na gaveta!\n");<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="teal">DA LICENÇA!</span><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="teal">DEIXA COMIGO!</span> 0;<br>
+           <span class="red">DA LICENÇA!</span><br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container fb-container">
+      <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Galera do Canal</h2>
+        <p class="text-center wow fadeInDown">
+          Deixe seu comentário sobre esta linguagem **artilheira** maravilhosa:
+        </p>
+      </div>
+      <div class="fb-comments" data-href="https://birl-language.github.io" data-width="600" data-numposts="5"></div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div id="footer_inside">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10">
+            
+          </div>
+
+          <div class="col-xs-2">
+            
+                          
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular/controllers.js"></script>
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/ui-ace.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>   
